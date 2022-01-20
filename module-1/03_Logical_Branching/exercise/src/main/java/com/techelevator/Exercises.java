@@ -183,9 +183,9 @@ public class Exercises {
 	 max1020(11, 9) → 11
 	 */
 	public int max1020(int a, int b) {
-		if ((a >= 10 && a <= 20) && (a > b || (b < 10 || b > 20))) {
+		if ((a >= 10 && a <= 20) && (a > b || b > 20)) {
 			return a;
-		} if ((b >= 10 && b <= 20) && (b > a || (a < 10 || a > 20))) {
+		} if ((b >= 10 && b <= 20) && (b > a || a > 20)) {
 			return b;
 		}
 		return 0;
@@ -275,14 +275,26 @@ public class Exercises {
 			return "ginormous";
 		} return "void";
     }
-
-	/*
-	 20. Given 2 ints, a and b, return their sum. However, sums in the range 10..19 inclusive, are forbidden,
-	 so in that case just return 20.
-	 sortaSum(3, 4) → 7
-	 sortaSum(9, 4) → 20
-	 sortaSum(10, 11) → 21
+	/*if (isBirthday) {
+        mealAmount += 5;
+    } if (mealAmount >= 15) {
+    	return "ginormous";
+    } if (mealAmount >=10) {
+    	return "special";
+    } return "standard";
 	 */
+	 */
+	 */
+	 */
+    */
+	 */
+   /*
+    20. Given 2 ints, a and b, return their sum. However, sums in the range 10..19 inclusive, are forbidden,
+    so in that case just return 20.
+    sortaSum(3, 4) → 7
+    sortaSum(9, 4) → 20
+    sortaSum(10, 11) → 21
+    */
 	public int sortaSum(int a, int b) {
 		if ((a+b) >= 10 && (a + b) <= 19) {
 			return 20;
