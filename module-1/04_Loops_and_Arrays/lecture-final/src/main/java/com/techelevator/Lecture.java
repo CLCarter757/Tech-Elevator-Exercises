@@ -1,13 +1,15 @@
 package com.techelevator;
 
+import static java.lang.Math.*;
+
 public class Lecture {
 
     /*
     1. Return the created array
     */
     public int[] returnArray() {
-        int[] array = { 80, 8080, 443 };
-        return array;
+//        int[] array = { 80, 8080, 443 };
+        return new int[] { 80, 8080, 443 };
     }
 
     /*
@@ -49,6 +51,7 @@ public class Lecture {
     5. Return the last element of the array from the parameters
     */
     public int returnLastElementOfParam(int[] passedInArray) {
+
         return passedInArray[passedInArray.length - 1];
     }
 
@@ -221,7 +224,7 @@ public class Lecture {
         int y = 2;
         x = x + y;
         x = 5;
-        
+
         int[] array1;
         array1 = new int[2];
         array1[0] = 2;
@@ -230,12 +233,53 @@ public class Lecture {
         int[] array2 = array1;
         array2[0] = 4;
 
-        int[] array3 = { 4, 2, 3 };
+        int[] array3 = {4, 2, 3};
         array3 = array1;
+    }
 
+    public static int calculateSum(int[] numbers) {
+
+        int sum = 0;
+        for(int i = 0; i < numbers.length; i++) {
+            sum = sum + numbers[i];
+        }
+
+        sum = 0;
+        for(int num : numbers) {
+            sum = sum + num;
+        }
+
+        sum = 0;
+        int i = 0;
+        while(i < numbers.length) {
+            sum = sum + numbers[i];
+            i++;
+        }
+
+        sum = 0;
+        i = 0;
+        do {
+            sum = sum + numbers[i];
+            i++;
+        } while(i < numbers.length);
+
+        return sum;
     }
 
 
+    public void testing() {
+
+
+
+        java.lang.String blah = "Walt";
+
+        int[] nums = {1, 2, 3};
+
+
+        double pi = PI;
+
+
+    }
 
 
 }
