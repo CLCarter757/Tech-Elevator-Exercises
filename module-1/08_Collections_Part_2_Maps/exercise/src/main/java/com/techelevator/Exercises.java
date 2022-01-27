@@ -1,6 +1,8 @@
 package com.techelevator;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Locale;
 import java.util.Map;
 
 public class Exercises {
@@ -34,7 +36,24 @@ public class Exercises {
 	 *
 	 */
 	public String animalGroupName(String animalName) {
-		return null;
+		Map<String, String> animalAndGroup = new HashMap<>();
+
+		animalAndGroup.put("rhino", "Crash");
+		animalAndGroup.put("giraffe", "Tower");
+		animalAndGroup.put("elephant", "Herd");
+		animalAndGroup.put("lion", "Herd");
+		animalAndGroup.put("crow", "Murder");
+		animalAndGroup.put("pigeon", "Kit");
+		animalAndGroup.put("flamingo", "Pat");
+		animalAndGroup.put("deer", "Herd");
+		animalAndGroup.put("dog", "Pack");
+		animalAndGroup.put("crocodile", "Float");
+
+		if (animalName == null) {
+			return "unknown";
+		} else if (animalAndGroup.containsKey(animalName.toLowerCase())) {
+			return animalAndGroup.get(animalName.toLowerCase());
+		} return "unknown";
 	}
 
 	/*
@@ -60,7 +79,20 @@ public class Exercises {
 	 *
 	 */
 	public double isItOnSale(String itemNumber) {
-		return -1.0;
+		Map<String, Double>  itemSKU = new HashMap<>();
+
+		itemSKU.put("KITCHEN4001", 0.20);
+		itemSKU.put("GARAGE", 0.15);
+		itemSKU.put("LIVINGROOM", 0.10);
+		itemSKU.put("KITCHEN6073", 0.40);
+		itemSKU.put("BEDROOM3434", 0.60);
+		itemSKU.put("BATH0073", 0.15);
+
+		if (itemNumber == null) {
+			return 0.00;
+		} else if (itemSKU.containsKey(itemNumber.toUpperCase())) {
+			return itemSKU.get(itemNumber.toUpperCase());
+		} return 0.00;
 	}
 
 	/*
@@ -74,7 +106,20 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
-		return null;
+
+		int newPeter = peterPaul.get("Peter") / 2;
+		int newPaul = newPeter + peterPaul.get("Paul");
+
+		if (peterPaul.get("Peter") > 0 && peterPaul.get("Paul") < 1000) {
+			if (peterPaul.get("Peter") % 2 != 0) {
+				newPeter++;
+				peterPaul.replace("Peter", newPeter);
+				peterPaul.replace("Paul", newPaul);
+			} else {
+				peterPaul.replace("Peter", newPeter);
+				peterPaul.replace("Paul", newPaul);
+			}
+		} return peterPaul;
 	}
 
 	/*
@@ -87,7 +132,16 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
-		return null;
+		int petersMoney = peterPaul.get("Peter");
+		int paulsMoney = peterPaul.get("Paul");
+		int petersShare = petersMoney / 4;
+		int paulsShare = paulsMoney / 4;
+
+		if (petersMoney >= 5000 && paulsMoney >= 10000) {
+			peterPaul.replace("Peter", petersMoney - petersShare);
+			peterPaul.replace("Paul", paulsMoney - paulsShare);
+			peterPaul.put("PeterPaulPartnership", petersShare + paulsShare);
+		} return peterPaul;
 	}
 
 	/*
@@ -99,7 +153,14 @@ public class Exercises {
 	 * beginningAndEnding(["muddy", "good", "moat", "good", "night"]) → {"g": "d", "m": "t", "n": "t"}
 	 */
 	public Map<String, String> beginningAndEnding(String[] words) {
-		return null;
+		Map<String, String> firstAndLast = new HashMap<>();
+
+		for (String key : words) {
+			String firstChar = key.substring(0, 1);
+			String lastChar = key.substring(key.length()-1, key.length());
+			firstAndLast.put(firstChar, lastChar);
+		}
+		return firstAndLast;
 	}
 
 	/*
@@ -115,14 +176,24 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> wordCount(String[] words) {
-		return null;
+		Map<String, Integer> wordCount = new HashMap<>(); //create a Map to receive new data
+
+		for (String word : words) {  //iterate thru words
+			if (wordCount.containsKey(word)) {		// check if word is already in wordCount
+				int counter = wordCount.get(word); //get value (current count) of word
+				counter++;                         //increase count by one
+				wordCount.put(word, counter);      //read element to replace value with current count
+			} else {   //add to wordCount if not in yet
+				wordCount.put(word, 1);
+			}
+		} return wordCount;
 	}
 
 	/*
 	 * Given an array of int values, return a Map<Integer, Integer> with a key for each int, with the value the
 	 * number of times that int appears in the array.
 	 *
-	 * ** The lesser known cousin of the the classic wordCount **
+	 * ** The lesser known cousin of the classic wordCount **
 	 *
 	 * intCount([1, 99, 63, 1, 55, 77, 63, 99, 63, 44]) → {1: 2, 44: 1, 55: 1, 63: 3, 77: 1, 99:2}
 	 * intCount([107, 33, 107, 33, 33, 33, 106, 107]) → {33: 4, 106: 1, 107: 3}
@@ -130,7 +201,18 @@ public class Exercises {
 	 *
 	 */
 	public Map<Integer, Integer> integerCount(int[] ints) {
-		return null;
+		Map<Integer, Integer> numberTimes = new HashMap<>();
+
+		for (Integer num : ints) {
+			if (numberTimes.containsKey(num)) {
+				int counter = numberTimes.get(num);
+				counter++;
+				numberTimes.put(num, counter);
+			} else {
+				numberTimes.put(num, 1);
+			}
+			} return numberTimes;
+
 	}
 
 	/*
@@ -143,7 +225,27 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Boolean> wordMultiple(String[] words) {
-		return null;
+		Map<String, Integer> wordCount = new HashMap<>(); //create a Map to receive new data
+		Map<String, Boolean> appearsTwice = new HashMap<>();
+
+		for (String word : words) {  //iterate thru words
+			if (wordCount.containsKey(word)) {		// check if word is already in wordCount
+				int counter = wordCount.get(word); //get value (current count) of word
+				counter++;                         //increase count by one
+				wordCount.put(word, counter);      //read element to replace value with current count
+			} else {   //add to wordCount if not in yet
+				wordCount.put(word, 1);
+			}
+
+		for (String count : wordCount.keySet()) {   //iterate through wordCount Map
+			if (wordCount.get(word) > 1) {			//check total count at least 2
+				appearsTwice.put(word, true);		//add to final Map w/ value true
+			} else {
+				appearsTwice.put(word, false);		//add to final Map w/ value false
+			}
+		}
+
+		} return appearsTwice;
 	}
 
 	/*
@@ -158,13 +260,25 @@ public class Exercises {
 	 */
 	public Map<String, Integer> consolidateInventory(Map<String, Integer> mainWarehouse,
 			Map<String, Integer> remoteWarehouse) {
-		return null;
+		Map<String, Integer> inventoryMerge = new HashMap<>();
+
+		inventoryMerge.putAll(mainWarehouse);
+
+		for (String item: remoteWarehouse.keySet()) {
+			if (inventoryMerge.containsKey(item)) {
+				int count = inventoryMerge.get(item) + remoteWarehouse.get(item);
+				inventoryMerge.put(item, count);
+			} else {
+				inventoryMerge.put(item, remoteWarehouse.get(item));
+			}
+		}
+		return inventoryMerge;
 	}
 
 	/*
 	 * Just when you thought it was safe to get back in the water --- last2Revisited!!!!
 	 *
-	 * Given an array of Strings, for each String, the count of the number of times that a subString length 2 appears
+	 * Given an array of Strings, for each String, count the number of times that a subString length 2 appears
 	 * in the String and also as the last 2 chars of the String, so "hixxxhi" yields 1.
 	 *
 	 * We don't count the end subString, but the subString may overlap a prior position by one.  For instance, "xxxx"
@@ -177,7 +291,18 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> last2Revisited(String[] words) {
-		return null;
+		Map<String, Integer> twoCount = new HashMap<>();
+
+		for (String letters : words) {  //iterate through given String
+			int counter = 0;			//variable to keep track or number times repeated
+			String last2 = letters.substring(letters.length()-2, letters.length()); //variable to show last two chars
+			for (int i = 0; i < letters.length()-3; i++) {  //nested for loop to iterate each word until last 2
+				if (letters.substring(i).startsWith(last2)) {  //checks each index for last2
+					counter++;		//add to counter
+				}
+			} twoCount.put(letters, counter); //add to new Map
+		}
+		return twoCount;
 	}
 
 }

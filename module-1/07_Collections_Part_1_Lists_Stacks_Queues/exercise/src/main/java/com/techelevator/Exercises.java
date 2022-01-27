@@ -190,6 +190,38 @@ public class Exercises {
 	 * boardingGate( [0, -1, 44, 31, 17, 7, 27, 16, 26, 6] ) -> [7, 6, 17, 16, 27, 26]
 	 */
 	public List<Integer> boardingGate(List<Integer> seatNumberList) {
+
+		Queue<Integer> firstGroup = new LinkedList<>();
+		Queue<Integer> secondGroup = new LinkedList<>();
+		Queue<Integer> thirdGroup = new LinkedList<>();
+
+		for(Integer seatNumber: seatNumberList) {
+			if (seatNumber >= 1 && seatNumber <= 10) {
+				firstGroup.offer(seatNumber);
+			} else if (seatNumber >= 11 && seatNumber <= 20) {
+				secondGroup.offer(seatNumber);
+			} else if (seatNumber >= 21 && seatNumber <= 30) {
+				thirdGroup.offer(seatNumber);
+			}
+		}
+		List<Integer> result = new ArrayList<>();
+		while(!firstGroup.isEmpty()) {
+			Integer whoIsNext = firstGroup.poll();
+			result.add(whoIsNext);
+		}
+		while(!secondGroup.isEmpty()) {
+			Integer whoIsNext = firstGroup.poll();
+			result.add(whoIsNext);
+		}
+		while(!thirdGroup.isEmpty()) {
+			Integer whoIsNext = firstGroup.poll();
+			result.add(whoIsNext);
+		}
+		return result;
+	}
+
+
+/*
 		List<Integer> groupedQueue = new ArrayList<>();
 		for (int i = 0; i < seatNumberList.size(); i++) {
 			if (seatNumberList.get(i) > 0 && seatNumberList.get(i) <= 10) {
