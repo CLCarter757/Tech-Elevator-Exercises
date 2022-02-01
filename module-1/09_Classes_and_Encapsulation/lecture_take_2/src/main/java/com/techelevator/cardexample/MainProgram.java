@@ -4,8 +4,8 @@ public class MainProgram {
 
 	public static void main(String[] args) {
 
-		Card myCard = new Card("Spades", 1, "Ace", false);
-		Card myOtherCard = new Card("Hearts", 13, "King");
+		Card myCard = new Card(Card.SUIT_SPADES, 1, "Ace", false);
+		Card myOtherCard = new Card(Card.SUIT_HEARTS, 13, "King");
 
 		System.out.println(myCard.getSuit());
 

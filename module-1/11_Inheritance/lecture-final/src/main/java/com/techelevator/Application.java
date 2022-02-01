@@ -67,6 +67,17 @@ public class Application {
         System.out.println("Bid count: " + myReserveAuction.getAllBids().size() + " Current winning bidder: " + myReserveAuction.getHighBid().getBidder());
 
 
+        System.out.println();
 
+        BuyItNowAuction myBuyItNowAuction = new BuyItNowAuction("Tech Elevator Mug", 15);
+
+        myBuyItNowAuction.placeBid(new Bid("Josh", 5));
+        System.out.println("Bid count: " + myBuyItNowAuction.getAllBids().size() + " Current winning bidder: " + myBuyItNowAuction.getHighBid().getBidder() + " Bid amount: " + myBuyItNowAuction.getHighBid().getBidAmount());
+        myBuyItNowAuction.placeBid(new Bid("Fonz", 12));
+        System.out.println("Bid count: " + myBuyItNowAuction.getAllBids().size() + " Current winning bidder: " + myBuyItNowAuction.getHighBid().getBidder() + " Bid amount: " + myBuyItNowAuction.getHighBid().getBidAmount());
+        myBuyItNowAuction.placeBid(new Bid("Billie", 16));
+        System.out.println("Bid count: " + myBuyItNowAuction.getAllBids().size() + " Current winning bidder: " + myBuyItNowAuction.getHighBid().getBidder() + " Bid amount: " + myBuyItNowAuction.getHighBid().getBidAmount());
+        myBuyItNowAuction.placeBid(new Bid("Oliver", 100));
+        System.out.println("Bid count: " + myBuyItNowAuction.getAllBids().size() + " Current winning bidder: " + myBuyItNowAuction.getHighBid().getBidder() + " Bid amount: " + myBuyItNowAuction.getHighBid().getBidAmount());
     }
 }

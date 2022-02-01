@@ -1,5 +1,6 @@
 package com.techelevator.cardexample;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
@@ -35,11 +36,10 @@ public class Deck {
             this.cards.push(card);
         }
     }
-
     //shuffle
-    //drawNextCard
-    //add to the deck
-
+    public void shuffle(){
+        Collections.shuffle(cards);
+    }
 
 
 

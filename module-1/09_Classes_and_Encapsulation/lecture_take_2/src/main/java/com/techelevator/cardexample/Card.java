@@ -1,6 +1,14 @@
 package com.techelevator.cardexample;
 
+import com.techelevator.Employee;
+
+import java.text.NumberFormat;
+
 public class Card {
+    public static final String SUIT_SPADES = "Spades";
+    public static final String SUIT_DIAMONDS = "Diamonds";
+    public static final String SUIT_HEARTS = "Hearts";
+    public static final String SUIT_CLUBS = "Clubs";
 
     //FIELDS
     private String suit;             // suit -> String

@@ -30,7 +30,7 @@ public class Auction {
 	}
 
 	public List<Bid> getAllBids() {
-		return new ArrayList<>(allBids);
+		return new ArrayList<>(allBids); //Way to send "read only" list so original cannot be changed
 	}
 
 	public String getItemForSale() {

@@ -12,7 +12,7 @@ public class Exercises {
 	 * (e.g. "Elephant" -> "Herd", "Rhino" - "Crash").
 	 *
 	 * The animal name should be case insensitive so "elephant", "Elephant", and
-	 * "ELEPHANT" should all return "herd".
+	 * "ELEPHANT" should all return "Herd".
 	 *
 	 * If the name of the animal is not found, null, or empty, return "unknown".
 	 *
@@ -295,8 +295,8 @@ public class Exercises {
 
 		for (String letters : words) {  //iterate through given String
 			int counter = 0;			//variable to keep track or number times repeated
-			String last2 = letters.substring(letters.length()-2, letters.length()); //variable to show last two chars
-			for (int i = 0; i < letters.length()-3; i++) {  //nested for loop to iterate each word until last 2
+			String last2 = letters.substring(letters.length()-2); //variable to show last two chars
+			for (int i = 0; i < letters.length()-2; i++) {  //nested for loop to iterate each word until last 2
 				if (letters.substring(i).startsWith(last2)) {  //checks each index for last2
 					counter++;		//add to counter
 				}
