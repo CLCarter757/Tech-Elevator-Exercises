@@ -1,5 +1,6 @@
 package com.techelevator;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,28 +9,29 @@ import java.util.List;
  */
 public class ShoppingCart {
 
-	private List<Book> booksToBuy = new ArrayList<>();
+	private List<MediaItem> itemsToBuy = new ArrayList<>();
 
-	public void add(Book bookToAdd) {
-	    booksToBuy.add(bookToAdd);
+	public void add(MediaItem itemToAdd) {
+	    itemsToBuy.add(itemToAdd);
 	}
 
 	public double getTotalPrice() {
 	    double total = 0.0;
-	    for (Book book : booksToBuy) {
-	        total += book.getPrice();
+	    for (MediaItem item : itemsToBuy) {
+	        total += item.getPrice();
 	    }
 	    return total;
 	}
 
 	public String receipt() {
 	    String receipt = "\nReceipt\n";
-	    for (Book book : booksToBuy) {
-	        receipt += book.bookInfo();
+	    for (MediaItem item : itemsToBuy) {
+	        receipt += item;
 	        receipt += "\n";
 	    }
+		NumberFormat currency = NumberFormat.getCurrencyInstance();
 
-	    receipt += "\nTotal: $" + getTotalPrice();
+		receipt += "\nTotal: " + currency.format(getTotalPrice());
 
 	    return receipt;
 	}
