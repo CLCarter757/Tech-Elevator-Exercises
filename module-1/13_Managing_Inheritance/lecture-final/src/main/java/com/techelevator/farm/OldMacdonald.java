@@ -37,5 +37,20 @@ public class OldMacdonald {
 		System.out.println(cow.eat());
 		System.out.println(chicken.eat());
 		System.out.println(pig.eat());
+
+
+		System.out.println();
+
+		Pig pig1 = new Pig();
+		Pig pig2 = new Pig();
+
+		System.out.println(pig1);
+		System.out.println(pig2);
+
+		if(pig1.equals(pig2)) {
+			System.out.println("The pigs are the same!");
+		} else {
+			System.out.println("The pigs are very different!");
+		}
 	}
 }
