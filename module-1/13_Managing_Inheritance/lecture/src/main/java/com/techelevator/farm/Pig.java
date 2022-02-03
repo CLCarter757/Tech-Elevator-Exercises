@@ -13,4 +13,9 @@ public class Pig extends FarmAnimal implements Sellable {
     public BigDecimal getPrice() {
         return price;
     }
+
+    @Override
+    public String eat() {
+        return "Eat whatever is in front of me!";
+    }
 }

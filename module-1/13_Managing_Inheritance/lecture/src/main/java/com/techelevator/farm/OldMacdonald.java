@@ -2,9 +2,13 @@ package com.techelevator.farm;
 
 public class OldMacdonald {
 	public static void main(String[] args) {
+		//FarmAnimal myFarmAnimal = new FarmAnimal("Walt's cat", "Loud Meow");  can't create now that FarmAnimal is abstract
+
+		Cow cow2 = new Cow();
+		cow2.sleep();
 
 		Singable[] singables =
-				new Singable[] {new Cow(), new Chicken(), new Pig(), new Tractor()};
+				new Singable[] {cow2, new Chicken(), new Pig(), new Tractor()};
 
 		for (Singable singable : singables) {
 			String name = singable.getName();
@@ -25,5 +29,29 @@ public class OldMacdonald {
 			System.out.println("Step right up and get your " + sellable.getName());
 			System.out.println("Only $" + sellable.getPrice());
 		}
+
+		Cow cow = new Cow();
+		Chicken chicken = new Chicken();
+		Pig pig = new Pig();
+
+		System.out.println();
+		System.out.println(cow.eat());
+		System.out.println(chicken.eat());
+		System.out.println(pig.eat());
+
+		System.out.println();
+
+		Pig pig1 = new Pig();
+		Pig pig2 = new Pig();
+
+		System.out.println(pig1);
+		System.out.println(pig2);
+
+		if (pig1.equals(pig2)) {
+			System.out.println("The pigs are the same!");
+		} else {
+			System.out.println("The pigs are very different!");
+		}
+
 	}
 }
