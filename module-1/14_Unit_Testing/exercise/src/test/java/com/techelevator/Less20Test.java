@@ -15,7 +15,7 @@ public class Less20Test {
         boolean intIsPositive = sut.isLessThanMultipleOf20(n);
 
         //Assert
-        Assert.assertFalse("n should not be negative", false);
+        Assert.assertFalse("n should not be negative", intIsPositive);
     }
 
     @Test
@@ -28,7 +28,7 @@ public class Less20Test {
         boolean input = sut.isLessThanMultipleOf20(n);
 
         //Assert
-        Assert.assertEquals(true, input);
+        Assert.assertTrue("Numbers one less than a multiple of 20 should return true.", input);
     }
 
     @Test
@@ -41,7 +41,7 @@ public class Less20Test {
         boolean input = sut.isLessThanMultipleOf20(n);
 
         //Assert
-        Assert.assertEquals(true, input);
+        Assert.assertTrue("Numbers two less than a multiple of 20 should return true.", input);
     }
 
     @Test
@@ -54,7 +54,7 @@ public class Less20Test {
         boolean input = sut.isLessThanMultipleOf20(n);
 
         //Assert
-        Assert.assertEquals(false, input);
+        Assert.assertFalse("Numbers more than 2 less a multiple of 20 should return false.", input);
     }
 
     @Test
@@ -67,6 +67,6 @@ public class Less20Test {
         boolean input = sut.isLessThanMultipleOf20(n);
 
         //Assert
-        Assert.assertEquals(false, input);
+        Assert.assertFalse("Numbers that are a multiple of 20 should return false.", input);
     }
 }

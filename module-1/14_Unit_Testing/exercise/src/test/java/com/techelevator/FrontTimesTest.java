@@ -15,7 +15,7 @@ public class FrontTimesTest {
         String input = sut.generateString(string, 3);
 
         //Assert
-        Assert.assertEquals("", string);
+        Assert.assertEquals("", input);
     }
 
     @Test

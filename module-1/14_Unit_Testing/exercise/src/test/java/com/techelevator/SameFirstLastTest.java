@@ -15,7 +15,7 @@ public class SameFirstLastTest {
         boolean input = sut.isItTheSame(nums);
 
         //Assert
-        Assert.assertEquals(false, input);
+        Assert.assertFalse("Null array should return false.", input);
     }
 
     @Test
@@ -28,7 +28,7 @@ public class SameFirstLastTest {
         boolean input = sut.isItTheSame(nums);
 
         //Assert
-        Assert.assertEquals(false, input);
+        Assert.assertFalse("Empty array should return false.", input);
     }
 
     @Test
@@ -41,7 +41,7 @@ public class SameFirstLastTest {
         boolean input = sut.isItTheSame(nums);
 
         //Assert
-        Assert.assertEquals(true, input);
+        Assert.assertTrue("Array with the same first and last elements should return true.", input);
     }
 
     @Test
@@ -54,7 +54,7 @@ public class SameFirstLastTest {
         boolean input = sut.isItTheSame(nums);
 
         //Assert
-        Assert.assertEquals(false, input);
+        Assert.assertFalse("Array without the same first and last elements should return false.", input);
     }
 
     @Test
@@ -67,6 +67,6 @@ public class SameFirstLastTest {
         boolean input = sut.isItTheSame(nums);
 
         //Assert
-        Assert.assertEquals(true, input);
+        Assert.assertTrue("Array with only one element should return true.", input);
     }
 }
