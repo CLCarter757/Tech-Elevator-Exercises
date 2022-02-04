@@ -5,7 +5,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class StringBitsTest {
-    StringBits sut = new StringBits();
+    StringBits sut;
+
+    @Before
+    public void setup() {
+        sut  = new StringBits();
+    }
 
     @Test
     public void getBits_null_string_returns_empty_string(){

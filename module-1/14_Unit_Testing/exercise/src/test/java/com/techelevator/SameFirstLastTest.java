@@ -32,7 +32,7 @@ public class SameFirstLastTest {
     }
 
     @Test
-    public void isItTheSame_length_greater_than_one_and_same_first_last_returns_true() {
+    public void isItTheSame_same_first_last_returns_true() {
         //Arrange
         SameFirstLast sut = new SameFirstLast();
         int[] nums = {1, 2, 3, 1};
@@ -45,7 +45,7 @@ public class SameFirstLastTest {
     }
 
     @Test
-    public void isItTheSame_length_greater_than_one_and_different_first_last_returns_false() {
+    public void isItTheSame_different_first_last_returns_false() {
         //Arrange
         SameFirstLast sut = new SameFirstLast();
         int[] nums = {1, 2, 3};
