@@ -15,6 +15,14 @@ public class M1D08CollectionsPart2Exercise {
      *
      */
     public Map<String, Integer> wordCount(String[] words) {
-        return null;
+        Map<String, Integer> wordCount = new HashMap<>();
+        for (String word : words)
+            if (wordCount.containsKey(word)) {
+                Integer currentCount = wordCount.get(word);
+                wordCount.put(word, currentCount + 1);
+            } else {
+                wordCount.put(word, 1);
+            }
+        return wordCount;
     }
 }
