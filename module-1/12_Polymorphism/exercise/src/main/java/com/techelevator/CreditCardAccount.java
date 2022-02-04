@@ -31,6 +31,6 @@ public class CreditCardAccount implements Accountable{
     }
 
     public int getBalance() {
-        return debt * -1;
+        return -debt;
     }
 }

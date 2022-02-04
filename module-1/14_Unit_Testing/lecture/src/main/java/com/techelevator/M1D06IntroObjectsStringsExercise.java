@@ -11,6 +11,12 @@ public class M1D06IntroObjectsStringsExercise {
 	 hasBad("xxbadxx") → false
 	 */
     public boolean hasBad(String str) {
+        if (str == null) {
+            return false;
+        }
+        if(str.startsWith("bad") || str.indexOf("bad") == 1) {
+            return true;
+        }
         return false;
     }
 }
