@@ -9,7 +9,7 @@ public class Program {
     public static void main(String[] args) {
         // Steps 7: Create MasterCard class and replace CreditCard instance
         // Steps 8: Create Visa class and replace CreditCard instance
-        CreditCard cc = new CreditCard();
+        CreditCard cc = new Visa();
 
         // Credit card validation loop
         while (true) {
@@ -28,7 +28,7 @@ public class Program {
                 cc.validate();
                 break; // No exception thrown, credit card is valid, break out of validation loop
             }
-            catch (Exception ex) { // Step 3: Throw and catch CreditCardValidationException
+            catch (CreditCardValidationException ex) { // Step 3: Throw and catch CreditCardValidationException
                 System.out.println("Card is invalid: " + ex.getMessage() + "\n");
             }
         }
