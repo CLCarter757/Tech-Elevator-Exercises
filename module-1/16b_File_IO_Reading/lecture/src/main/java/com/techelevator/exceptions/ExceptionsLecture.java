@@ -19,7 +19,7 @@ public class ExceptionsLecture {
 			System.out.println(cities[0]);
 			System.out.println(cities[1]);
 			System.out.println(cities[2]);
-			System.out.println(cities[3]);  // This statement will throw an ArrayIndexOutOfBoundsException
+	//		System.out.println(cities[3]);  // This statement will throw an ArrayIndexOutOfBoundsException
 			System.out.println("are all in Ohio."); // This line won't execute because the previous statement throws an Exception
 		} catch(ArrayIndexOutOfBoundsException e) {
 			// Flow of control resumes here after the Exception is thrown
@@ -30,7 +30,7 @@ public class ExceptionsLecture {
 		
 		/* try/catch blocks will also catch Exceptions that are thrown from method calls further down the stack */
 		try {
-			System.out.println("Hey ya'll, watch this!");
+			System.out.println("Hey y'all, watch this!");
 			doSomethingDangerous();  // throws an ArrayIndexOutOfBoundsException
 			System.out.println("See, I told you nothing would go wrong!");
 		} catch(ArrayIndexOutOfBoundsException e) {  
