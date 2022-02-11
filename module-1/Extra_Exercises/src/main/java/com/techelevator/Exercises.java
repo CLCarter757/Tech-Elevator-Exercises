@@ -1,5 +1,10 @@
 package com.techelevator;
 
+import java.sql.Array;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Exercises {
 
 	/*
@@ -9,7 +14,15 @@ public class Exercises {
 	 arrayCount9([1, 9, 9, 3, 9]) → 3
 	 */
 	public int arrayCount9(int[] nums) {
-		return 0;
+		int numberOfNines = 0;
+
+		for(Integer num : nums) {
+			if(num == 9) {
+				numberOfNines++;
+			}
+		}
+
+		return numberOfNines;
 	}
 
 	/*
@@ -19,7 +32,19 @@ public class Exercises {
 	 arrayFront9([1, 2, 3, 4, 5]) → false
 	 */
 	public boolean arrayFront9(int[] nums) {
-		return false;
+		if (nums.length < 4) {
+			for (int i = 0; i < nums.length; i++) {
+				if (nums[i] == 9) {
+					return true;
+				}
+			}
+		} else {
+			for (int i = 0; i < 4; i++) {
+				if (nums[i] == 9) {
+					return true;
+				}
+			}
+		} return false;
 	}
 
 	/*
@@ -29,7 +54,23 @@ public class Exercises {
 	 array123([1, 1, 2, 1, 2, 3]) → true
 	 */
 	public boolean array123(int[] nums) {
-		return false;
+		boolean hasOne = false;
+		boolean hasTwo = false;
+		boolean hasThree = false;
+
+		for (int i = 0; i < nums.length; i++) {
+			if(nums[i] == 1) {
+				hasOne = true;
+			} if(nums[i] == 2) {
+				hasTwo = true;
+			} if(nums[i] == 3) {
+				hasThree = true;
+			}
+		}
+
+		if(hasOne && hasTwo && hasThree) {
+			return true;
+		} return false;
 	}
 
 	/*
@@ -40,7 +81,12 @@ public class Exercises {
 	 noTriples([1, 1, 1, 2, 2, 2, 1]) → false
 	 */
 	public boolean noTriples(int[] nums) {
-		return false;
+		for (int i = 0; i <= nums.length - 3; i++) {
+			if (nums[i] == nums[i + 1] && nums[i] == nums[i + 2]) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/*
@@ -51,7 +97,10 @@ public class Exercises {
 	 makeEnds([7, 4, 6, 2]) → [7, 2]
 	 */
 	public int[] makeEnds(int[] nums) {
-		return new int[] {};
+		int[] newArray = new int[2];
+		newArray[0] = nums[0];
+		newArray[1] = nums[nums.length - 1];
+		return newArray;
 	}
 
 	/*
@@ -61,7 +110,11 @@ public class Exercises {
 	 has23([4, 5]) → false
 	 */
 	public boolean has23(int[] nums) {
-		return false;
+		for (int i = 0; i < nums.length; i++) {
+			if(nums[i] == 2 || nums[i] == 3) {
+				return true;
+			}
+		} return false;
 	}
 
 	/*
@@ -71,7 +124,11 @@ public class Exercises {
 	 no23([3, 5]) → false
 	 */
 	public boolean no23(int[] nums) {
-		return false;
+		for (int i = 0; i < nums.length; i++) {
+			if(nums[i] == 2 || nums[i] == 3) {
+				return false;
+			}
+		} return true;
 	}
 
 	/*
@@ -83,7 +140,14 @@ public class Exercises {
 	 makeLast([3]) → [0, 3]
 	 */
 	public int[] makeLast(int[] nums) {
-		return new int[] {};
+		int[] newArray = new int[nums.length*2];
+
+		for (int i = 0; i < newArray.length - 2; i++) {
+			newArray[i] = 0;
+		}
+		newArray[newArray.length - 1] = nums[nums.length - 1];
+
+		return newArray;
 	}
 
 	/*
@@ -93,7 +157,14 @@ public class Exercises {
 	 double23([2, 3]) → false
 	 */
 	public boolean double23(int[] nums) {
-		return false;
+		if(nums.length == 2) {
+			if (nums[0] == 2 && nums[1] == 2) {
+				return true;
+			}
+			if (nums[0] == 3 && nums[1] == 3) {
+				return true;
+			}
+		} return false;
 	}
 
 	/*
@@ -104,7 +175,13 @@ public class Exercises {
 	 fix23([1, 2, 1]) → [1, 2, 1]
 	 */
 	public int[] fix23(int[] nums) {
-		return new int[] {};
+		int[] newArray = nums;
+
+		for (int i = 1; i < nums.length; i++) {
+			if(nums[i] == 3 && nums[i - 1] == 2) {
+				newArray[i] = 0;
+			}
+		} return newArray;
 	}
 
 	/*
@@ -114,7 +191,13 @@ public class Exercises {
 	 start1([1, 2], []) → 1
 	 */
 	public int start1(int[] a, int[] b) {
-		return 0;
+		int counter = 0;
+		if(a.length > 0 && a[0] == 1) {
+			counter++;
+		} if(b.length > 0 && b[0] == 1) {
+			counter++;
+		}
+		return counter;
 	}
 
 	/*
@@ -125,7 +208,12 @@ public class Exercises {
 	 biggerTwo([1, 1], [1, 2]) → [1, 2]
 	 */
 	public int[] biggerTwo(int[] a, int[] b) {
-		return new int[] {};
+		if(a[0] + a[1] > b[0] + b[1]) {
+			return a;
+		} if(a[0] + a[1] < b[0] + b[1]) {
+			return b;
+		}
+		return a;
 	}
 
 	/*
@@ -136,7 +224,9 @@ public class Exercises {
 	 makeMiddle([1, 2]) → [1, 2]
 	 */
 	public int[] makeMiddle(int[] nums) {
-		return new int[] {};
+		int middleIndex = nums.length / 2;
+		int[] answer = new int[]{nums[middleIndex - 1], nums[middleIndex]};
+		return answer;
 	}
 
 	/*
@@ -146,7 +236,13 @@ public class Exercises {
 	 plusTwo([9, 2], [3, 4]) → [9, 2, 3, 4]
 	 */
 	public int[] plusTwo(int[] a, int[] b) {
-		return new int[] {};
+		int[] newArray = new int[4];
+
+		for (int i = 0; i < 2; i++) {
+			newArray[i] = a[i];
+			newArray[i + 2] = b[i];
+		}
+		return newArray;
 	}
 
 	/*
@@ -157,7 +253,18 @@ public class Exercises {
 	 swapEnds([8, 6, 7, 9, 5]) → [5, 6, 7, 9, 8]
 	 */
 	public int[] swapEnds(int[] nums) {
-		return new int[] {};
+		int[] answer = new int[nums.length];
+
+		for (int i = 0; i < nums.length; i++) {
+			if(i == 0) {
+				answer[i] = nums[nums.length - 1];
+			} else if(i == nums.length - 1) {
+				answer[nums.length - 1] = nums[0];
+			} else {
+				answer[i] = nums[i];
+			}
+		}
+		return answer;
 	}
 
 	/*
@@ -167,7 +274,22 @@ public class Exercises {
 	 more14([1, 1]) → true
 	 */
 	public boolean more14(int[] nums) {
-		return false;
+		Map<Integer, Integer> count = new HashMap<>();
+		count.put(1, 0);
+		count.put(4, 0);
+
+		if(nums == null) {
+			return false;
+		} else {
+			for (int num : nums) {
+				if(count.containsKey(num)) {
+					count.put(num, count.get(num) + 1);
+				} else {
+					count.put(num, 1);
+				}
+			}
+		}
+		return count.get(1) > count.get(4) || count.get(4) == null;
 	}
 
 	/*
@@ -180,7 +302,12 @@ public class Exercises {
 	 fizzArray(10) → [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 	 */
 	public int[] fizzArray(int n) {
-		return new int[] {};
+		int[] answer = new int[n];
+
+		for (int i = 0; i < n; i++) {
+			answer[i] = i;
+		}
+		return answer;
 	}
 
 	/*
@@ -190,7 +317,16 @@ public class Exercises {
 	 only14([1, 1]) → true
 	 */
 	public boolean only14(int[] nums) {
-		return false;
+		boolean answer = true;
+
+		for (int i = 0; i < nums.length; i++) {
+			if(nums[i] == 1 || nums[i] == 4) {
+				answer = answer;
+			} else {
+				answer = false;
+			}
+		}
+		return answer;
 	}
 
 	/*
@@ -200,7 +336,17 @@ public class Exercises {
 	 no14([2, 3, 4]) → true
 	 */
 	public boolean no14(int[] nums) {
-		return false;
+		boolean has1 = false;
+		boolean has4 = false;
+
+		for (int i = 0; i < nums.length; i++) {
+			if(nums[i] == 1) {
+				has1 = true;
+			} if(nums[i] == 4) {
+				has4 = true;
+			}
+		}
+		return !(has1 && has4);
 	}
 
 	/*
@@ -210,6 +356,15 @@ public class Exercises {
 	 has12([3, 1, 4, 5, 2]) → true
 	 */
 	public boolean has12(int[] nums) {
+		for (int i = 0; i < nums.length; i++) {
+			if(nums[i] == 1) {
+				for (int j = i + 1; j < nums.length; j++) {
+					if(nums[j] == 2) {
+						return true;
+					}
+				}
+			}
+		}
 		return false;
 	}
 
@@ -222,7 +377,12 @@ public class Exercises {
 	 fizzArray3(1, 3) → [1, 2]
 	 */
 	public int[] fizzArray3(int start, int end) {
-		return new int[] {};
+		int[] answer = new int[end - start];
+
+		for (int i = 0; i < end-start; i++) {
+			answer[i] = start + i;
+		}
+		return answer;
 	}
 
 	/*
@@ -232,6 +392,13 @@ public class Exercises {
 	 lessBy10(11, 1, 7) → true
 	 */
 	public boolean lessBy10(int a, int b, int c) {
+		if(a + 10 <= b || a + 10 <= c) {
+			return true;
+		} if(b + 10 <= a || b + 10 <= c) {
+			return true;
+		} if(c + 10 <= a || c + 10 <= b) {
+			return true;
+		}
 		return false;
 	}
 
@@ -244,6 +411,11 @@ public class Exercises {
 	 greenTicket(1, 1, 2) → 10
 	 */
 	public int greenTicket(int a, int b, int c) {
+		if(a == b && b == c) {
+			return 20;
+		} if((a == b && a != c) || (b == c && b != a) || (a == c && a != b)) {
+			return 10;
+		}
 		return 0;
 	}
 
@@ -255,6 +427,16 @@ public class Exercises {
 	 blackjack(19, 22) → 19
 	 */
 	public int blackjack(int a, int b) {
+		int minusA = 21 - a;
+		int minusB = 21 - b;
+
+		if((minusA < minusB) && (a < 22 && b < 22) || (a < 22 && b > 21)) {
+			return a;
+		} if((minusB < minusA) && (a < 22 && b < 22) || (b < 22 && a > 21)) {
+			return b;
+		} if(a == b && a <22) {
+			return a;
+		}
 		return 0;
 	}
 
@@ -266,7 +448,12 @@ public class Exercises {
 	 evenlySpaced(4, 6, 3) → false
 	 */
 	public boolean evenlySpaced(int a, int b, int c) {
-		return false;
+		int[] order = new int[]{a, b, c};
+		Arrays.sort(order);
+
+		if(order[1] - order[0] == order[2] - order[1]) {
+			return true;
+		} return false;
 	}
 
 }
