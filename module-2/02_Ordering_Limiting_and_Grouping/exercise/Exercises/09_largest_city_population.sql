@@ -2,3 +2,7 @@
 -- Expected answer is around 8,300,000
 -- (1 row)
 
+SELECT population AS largest_city_population
+FROM city
+ORDER BY population DESC
+LIMIT 1;
