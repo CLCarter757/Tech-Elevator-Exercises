@@ -15,7 +15,6 @@ FROM park
 ORDER BY area DESC
 LIMIT 1;
 
-
 -- LIMITING RESULTS
 
 -- The 10 largest cities by populations
@@ -24,14 +23,11 @@ FROM city
 ORDER BY population DESC
 LIMIT 10;
 
-
 -- The 20 oldest parks from oldest to youngest in years, sorted alphabetically by name.
 SELECT DATE_PART('year', CURRENT_DATE) - DATE_PART('year', date_established) AS years_established, park_name 
 FROM park 
 ORDER BY years_established DESC, park_name ASC 
 LIMIT 20;
-
-
 
 -- CONCATENATING OUTPUTS
 
@@ -50,7 +46,6 @@ SELECT census_region || ': ' || state_name AS region_and_state
 FROM state
 WHERE census_region = 'West' OR census_region = 'Midwest'
 ORDER BY region_and_state;
-
 
 -- AGGREGATE FUNCTIONS
 
@@ -78,7 +73,6 @@ SELECT * FROM state;
 SELECT MIN(area) AS smallest, MAX(area) AS largest
 FROM park;
 
-
 -- GROUP BY
 
 -- Count the number of cities in each state, ordered from most cities to least.
@@ -100,7 +94,6 @@ SELECT has_camping, AVG(area) AS average_area
 FROM park
 GROUP BY has_camping;
 
-
 -- Sum of the population of cities in each state ordered by state abbreviation.
 SELECT state_abbreviation, population
 FROM city
@@ -117,7 +110,6 @@ FROM city
 GROUP BY state_abbreviation
 ORDER BY smallest_city_population;
 
-
 -- two group bys
 
 -- list of strings
@@ -133,8 +125,6 @@ FROM
    (SELECT state_abbreviation, population, ROW_NUMBER() OVER (PARTITION BY state_abbreviation ORDER BY population ASC) AS row_number 
    FROM city) temp_table
 WHERE row_number <= 2;
- 
- 
 
 -- Miscelleneous
 
@@ -149,8 +139,6 @@ FROM city
 ORDER BY city_name
 OFFSET 20 ROWS FETCH NEXT 10 ROWS ONLY;
 
-
-
 -- SUBQUERIES (optional)
 
 -- Include state name rather than the state abbreviation while counting the number of cities in each state,
@@ -164,7 +152,6 @@ SELECT
 FROM city
 GROUP BY state_abbreviation
 ORDER BY state_abbreviation;
-
 
 -- Include the names of the smallest and largest parks
 
@@ -181,7 +168,6 @@ FROM park,
 WHERE park.area = smallest_and_largest.smallest
       OR park.area = smallest_and_largest.largest;
 
-
 -- List the capital cities for the states in the Northeast census region.
 --	
 
@@ -193,7 +179,6 @@ WHERE census_region = 'Northeast';
 SELECT city_name
 FROM city
 WHERE city_id IN (SELECT capital FROM state WHERE census_region = 'Northeast');
-
 
 -- The 10 largest cities by populations, ordered by city_name alphabetically
 -- NOT DONE YET
