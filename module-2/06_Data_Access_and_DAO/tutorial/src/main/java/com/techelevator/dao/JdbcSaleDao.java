@@ -18,7 +18,7 @@ public class JdbcSaleDao implements SaleDao {
     @Override
     public BigDecimal getTotalSales() {
         // Step Two: Add SQL for retrieving total sales
-        return jdbcTemplate.queryForObject("SELECT 0;", BigDecimal.class);
+        return jdbcTemplate.queryForObject("SELECT SUM(total) FROM sale;", BigDecimal.class);
     }
 
     @Override
