@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node_modules/.bin/json-server data-generation.js"
+    "start": "json-server data-generation.js"
   },
   "keywords": [],
   "author": "",
