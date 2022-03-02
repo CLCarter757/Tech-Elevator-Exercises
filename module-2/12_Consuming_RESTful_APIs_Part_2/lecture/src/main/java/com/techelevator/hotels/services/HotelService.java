@@ -3,6 +3,7 @@ package com.techelevator.hotels.services;
 import com.techelevator.hotels.model.Hotel;
 import com.techelevator.hotels.model.Reservation;
 import com.techelevator.util.BasicLogger;
+import org.springframework.http.*;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
@@ -17,7 +18,22 @@ public class HotelService {
      * Create a new reservation in the hotel reservation system
      */
     public Reservation addReservation(Reservation newReservation) {
-        // TODO: Implement method
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<Reservation> entity = new HttpEntity<>(newReservation, headers); //Request's body and headers
+
+        try {
+            Reservation reservation = restTemplate.postForObject(API_BASE_URL + "reservations", entity, Reservation.class);
+            return reservation;
+        } catch (RestClientResponseException e) {
+            // handles exceptions thrown by rest template and contains status codes
+            BasicLogger.log(e.getRawStatusCode() + " : " + e.getStatusText());
+        } catch (ResourceAccessException e) {
+            // i/o error, ex: the server isn't running
+            BasicLogger.log(e.getMessage());
+        }
+
         return null;
     }
 
@@ -26,7 +42,25 @@ public class HotelService {
      * reservation
      */
     public boolean updateReservation(Reservation updatedReservation) {
-        // TODO: Implement method
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<Reservation> entity = new HttpEntity<>(updatedReservation, headers);
+
+        try {
+            restTemplate.put(API_BASE_URL + "reservations/" + updatedReservation.getId(), entity);
+//       Long form of how to send a request and get a response with rest template:
+//            ResponseEntity<Reservation> response = restTemplate.exchange(API_BASE_URL + "reservations/" + updatedReservation.getId(),
+//                        HttpMethod.PUT, entity, Reservation.class);
+//            response.getBody();
+            return true;
+        } catch (RestClientResponseException e) {
+            // handles exceptions thrown by rest template and contains status codes
+            BasicLogger.log(e.getRawStatusCode() + " : " + e.getStatusText());
+        } catch (ResourceAccessException e) {
+            // i/o error, ex: the server isn't running
+            BasicLogger.log(e.getMessage());
+        }
         return false;
     }
 
@@ -34,7 +68,16 @@ public class HotelService {
      * Delete an existing reservation
      */
     public boolean deleteReservation(int id) {
-        // TODO: Implement method
+        try {
+            restTemplate.delete(API_BASE_URL + "reservations/" + id);
+            return true;
+        } catch (RestClientResponseException e) {
+            // handles exceptions thrown by rest template and contains status codes
+            BasicLogger.log(e.getRawStatusCode() + " : " + e.getStatusText());
+        } catch (ResourceAccessException e) {
+            // i/o error, ex: the server isn't running
+            BasicLogger.log(e.getMessage());
+        }
         return false;
     }
 
