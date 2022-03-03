@@ -54,13 +54,13 @@ public class MemoryReservationDao implements ReservationDao {
     }
 
     @Override
-    public Reservation get(int reservationID) {
+    public Reservation get(int reservationID) throws ReservationNotFoundException{
         for (Reservation res : reservations) {
             if (res.getId() == reservationID) {
                 return res;
             }
         }
-        return null;
+        throw new ReservationNotFoundException();
     }
 
     @Override
@@ -71,13 +71,21 @@ public class MemoryReservationDao implements ReservationDao {
     }
 
     @Override
-    public Reservation update(Reservation reservation, int id)  {
-        return null;
+    public Reservation update(Reservation reservation, int id) throws ReservationNotFoundException {
+        Reservation reservationToUpdate = reservations.get(id);
+
+        reservations.remove(reservationToUpdate);
+
+        reservation.setId(id);
+        reservations.add(reservation);
+
+        return reservation;
     }
 
     @Override
-    public void delete(int id) {
-
+    public void delete(int id) throws ReservationNotFoundException {
+        Reservation reservation = get(id);
+        reservations.remove(reservation);
     }
 
     private void initializeReservationData() {
