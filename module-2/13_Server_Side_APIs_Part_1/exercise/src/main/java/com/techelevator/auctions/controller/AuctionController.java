@@ -36,7 +36,7 @@ public class AuctionController {
             filteredAuctions = dao.searchByTitleAndPrice(title, currentBid);
             return filteredAuctions;
         }
-        
+
         return auctions;
     }
 
