@@ -1,11 +1,16 @@
 package com.techelevator.reservations.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Hotel {
 
     private int id;
     private String name;
     private Address address;
+
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private int stars;
+
     private int roomsAvailable;
     private double costPerNight;
     private String coverImage;
