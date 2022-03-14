@@ -1,0 +1,17 @@
+/*
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap');
+*/
+
+body {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    background-color: #f1dc97;
+}
+
+img {
+    height: 200px;
+}
+
+h1 {
+    font-size: 28px;
+    color: cornflowerblue;
+}
