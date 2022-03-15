@@ -4,8 +4,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fan Registration</title>
+    <link rel="stylesheet" href="info_style.css">
 </head>
 <body>
-    
+    <header>
+        <h1>Fan Registration</h1>
+        <p><em>Please enter your information.</em></p>
+    </header>
+
+    <main>
+        <h2>Registration Form</h2>
+
+        <form action="https://example.com/api/registration" method="POST">
+
+            <section>
+                <label for="name">Name</label>
+                <input id="name" type="text" name="name" required>
+            </section>
+
+            <section>
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" required>
+            </section>
+
+            <section>
+                <label for="date-of-birth">Date of Birth</label>
+                <input type="date" id="date-of-birth" name="date-of-birth">
+            </section>
+
+            <section>
+                <label for="favorite-color">Favorite Color</label>
+                <input type="color" id="favorite-color" name="favorite-color">
+            </section>
+
+            <section>
+                <label for="lucky-number">Lucky Number</label>
+                <input type="number" id="lucky-number" name="lucky-number">
+            </section>
+
+            <section>
+                <label for="confirmation">Confirm data is correct</label>
+                <input type="checkbox" id="confirmation" name="confirmation">
+            </section>
+
+            <section>
+                <input type="submit" value="Submit">
+            </section>
+
+    </main>
+
 </body>
 </html>
