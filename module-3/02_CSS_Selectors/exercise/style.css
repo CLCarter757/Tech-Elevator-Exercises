@@ -7,6 +7,16 @@ html {
   font-size: 16px;
 }
 
+header > img {
+  height: 100px;
+  width: auto;
+  margin: 10px;
+}
+
+main > img {
+  width: 100%;
+}
+
 body {
   background-color: rgba(192, 192, 192, 0.1);
 }
@@ -14,4 +24,63 @@ body {
 ul {
   margin: 0;
   padding: 0;
+}
+
+aside {
+  position: fixed;
+  border-right: 1px solid rgba(0, 173, 238, 0.4);
+  height: 100%;
+  width: 200px;
+}
+
+aside > img {
+  height: 120px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main {
+  margin-left: 200px;
+  padding: 20px;
+}
+
+li {
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(0, 173, 238, 0.4);
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  list-style: none;
+  padding: 10px;;
+}
+
+li > a {
+  font-weight: bold;
+  color: #00ADEE;
+  text-decoration: none;
+}
+
+li:first-child {
+  text-decoration: underline;
+}
+
+section > div {
+  display: inline-block;
+  vertical-align: top;
+  width: 33%;
+  padding: 20px;
+}
+
+section > div > h2 {
+  color: #8CC36F;
+}
+
+section > div > h2 > i {
+  padding-right: 20px
+}
+
+section > #what-we-do~div {
+  border-left: 1px solid rgba(170, 239, 135, 0.8);
 }
