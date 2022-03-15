@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,900;1,400&display=swap');
+
+header {
+    text-align: center;
+}
+
+body{
+    font-family: 'Titillium Web', Arial, Helvetica, sans-serif;
+    background-color: rgb(161, 14, 14);
+    color: whitesmoke;
+}
+
+body form{
+  font-family: 'Titillium Web', Arial, Helvetica, sans-serif;
+  background-color: rgb(161, 14, 14);
+  color: whitesmoke;
+}
+
+h2{
+  text-decoration: underline;
+}
+
+
+
+#teamsAndDrivers {
+    text-align: center;
+    border-collapse: collapse; 
+  }
+  td, th {
+    border: 1px solid #999;
+    padding: 20px;
+    
+  }
+  th {
+    background: rgba(255, 0, 0, 0.548);
+    border-radius: 0;
+    position: sticky;
+    top: 0;
+    padding: 10px;
+  }
+
+  #teamsAndDrivers img{
+    height: 100px;
+    width: 100px;
+  }
+
+  #quotes-section blockquote{
+    font-style: italic;
+  }
+
+  a:link, a:visited {
+    color: whitesmoke;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: underline;
+    display: inline-block;
+  }
+  
+  a:hover, a:active {
+    font-weight: bold;
+  }
