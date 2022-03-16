@@ -1,0 +1,50 @@
+.container > header {
+    grid-area: header;
+}
+
+#menu-nav {
+    grid-area: menu-nav;
+}
+
+div main {
+    grid-area: main;
+}
+
+#upcoming-events {
+    grid-area: upcoming-events;
+}
+
+.container > footer {
+    grid-area: footer;
+}
+
+
+.container {
+    display: grid;
+
+    grid-template-columns: 200px 1fr 200px;
+
+    grid-template-areas: "header header header" 
+                         "menu-nav main upcoming-events" 
+                         "footer footer footer";
+
+    height: 100vh;
+    gap: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+
+    /* body {
+        background-color: black;
+    } */
+
+    .container {
+        grid-template-columns: auto;
+        grid-template-areas: "header"
+                             "menu-nav"
+                             "main"
+                             "upcoming-events"
+                             "footer";
+    }    
+
+}
