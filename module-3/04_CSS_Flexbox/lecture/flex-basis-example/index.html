@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="flex.css">
+</head>
+<body>
+    
+    <main>
+        <section id="one" class="box box-left">
+            1
+        </section>
+
+        <section id="two" class="box box-right">
+            2
+        </section>
+    </main>
+
+    <aside style="display: flex; max-width: 800px;">
+        <section style="flex-grow:1;">flex-grow: 1</section>
+        <section style="flex-grow:2">flex-grow: 2</section>
+    </aside>
+    <main>
+        <section id="three" class="box box-left">
+            3
+        </section>
+
+        <section id="four" class="box box-right">
+            4
+        </section>
+    </main>
+    
+
+    <aside style="display: flex; max-width: 800px;">
+        <section style="flex-grow:1; flex-basis: 200px">
+            <div>flex-basis: 200px</div>
+            <div>flex-grow: 1</div>
+        </section>
+        <section style="flex-grow:2; flex-basis: 100px">
+            <div>flex-basis: 100px</div>
+            <div>flex-grow: 2</div>
+        </section>
+    </aside>
+    <main>
+        <section id="five" class="box box-left">
+            5
+        </section>
+
+        <section id="six" class="box box-right">
+            6
+        </section>
+    </main>
+
+
+
+    <aside style="display: flex; max-width: 800px;">
+        <section style="flex-shrink: 1; flex-grow:1; flex-basis: 300px">
+            <div>flex-basis: 300px</div>
+            <div>flex-shrink: 1</div>
+            <div>flex-grow: 1</div>
+        </section>
+        <section style="flex-shrink:2; flex-basis: 300px; ">
+            <div>flex-basis: 300px</div>
+            <div>flex-shrink: 2</div>
+        </section>
+    </aside>
+    <main>
+        <section id="seven" class="box box-left">
+            7
+        </section>
+
+        <section id="eight" class="box box-right">
+            8
+        </section>
+    </main>
+
+    <div style="text-align: center; font-size: 2rem;">
+        Container Widths: <span id="container-widths"></span>
+    </div>
+
+
+    <script>
+        function updateBoxWidths() {
+            const main = document.getElementsByTagName('main')[0];
+            const containerWidth = document.getElementById('container-widths');
+            containerWidth.innerText = main.clientWidth;
+
+            const boxes = document.getElementsByClassName('box');
+            for(box of boxes) {
+                box.innerText = box.clientWidth;
+            }
+        }
+        window.addEventListener('resize', () => {
+            updateBoxWidths();
+        });
+
+        window.addEventListener('DOMContentLoaded', () => { 
+            updateBoxWidths();
+            updateBoxWidths(); /* set again because changing the innerText may impact the width */
+         });
+    </script>
+</body>
+</html>
