@@ -38,3 +38,16 @@ a:hover {
   text-decoration: underline;
 }
 
+header > nav > ul {
+  display: flex;
+  justify-content: flex-end;
+}
+
+header {
+  display: flex;
+  
+}
+
+header > nav {
+  flex-grow: 1;
+}
