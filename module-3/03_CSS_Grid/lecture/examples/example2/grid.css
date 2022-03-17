@@ -9,7 +9,7 @@ section {
     height: 600px;
     
     grid-template-columns: 150px 1fr;    /* 2 columns. Widths of 150px and 350px */  
-    grid-template-rows: 50px 1fr 50px;   /* 3 rows.    Heights of 50px 500px and 50px*/   
+    grid-template-rows: 50px 1fr 3fr;   /* 3 rows.    Heights of 50px 500px and 50px*/   
 }
 
 span {
