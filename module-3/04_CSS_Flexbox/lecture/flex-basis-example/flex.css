@@ -33,7 +33,7 @@ main {
                   /* 287 */
 }
 #four {
-    flex-grow: 2; /* start with however wide content is, then use 1/3 of remaining space */
+    flex-grow: 2; /* start with however wide content is, then use 2/3 of remaining space */
                   /* 60px + (2/3 * (800 - (60 + 60))) */
                   /* 60 + (2/3 * 680) */
                   /* 513 */
