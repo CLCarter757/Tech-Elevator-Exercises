@@ -10,8 +10,15 @@
  */
 function variables() {
   // Declares a variable where the value cannot be changed
+  const daysPerWeek = 7;
+  console.log('Days per week: ' + daysPerWeek);
   // Declares a variable those value can be changed
+  let daysPerMonth = 31;
+  console.log('Days per week: ' + daysPerMonth);
   // Declares a variable that will always be an array
+  const months = ['January', 'February', 'March', 'April'];
+  months.push('May');
+  console.table(months);
 }
 
 /**
@@ -21,6 +28,7 @@ function variables() {
  * @param {Number} param2 The second number to display
  */
 function printParameters(param1, param2) {
+
   console.log(`The value of param1 is ${param1}`);
   console.log(`The value of param2 is ${param2}`);
 }
@@ -74,10 +82,26 @@ function objects() {
   };
 
   // Log the object
-
+  console.log(person);
   // Log the first and last name
-
+  console.log(`${person.firstName} ${person.lastName}`);
+  console.log(person.firstName + ' ' + person.lastName);
   // Log each employee
+  console.log(person.employees);
+
+  for(let i = 0; i < person.employees.length; i++) {
+    console.log(person.employees[i]);
+  }
+
+  for (const name of person.employees) {
+    console.log(name);
+  }
+
+  let j = 0;
+  while(j < person.employees.length) {
+    console.log(person.employees[j]);
+    j++;
+  }
 }
 
 /*
@@ -132,10 +156,44 @@ function stringFunctions(value) {
   /*
     Other Methods
         - split(string)
-        - substr(number, number)
+        - substr(number, number) -> no longer in use
         - substring(number, number)
         - toLowerCase()
         - trim()
         - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
     */
+}
+
+
+/*
+  given an array, return true if two consecutive 1s
+*/
+function twoConsecutive(nums) {
+  if (nums == null) {
+    return false;
+  }
+
+  for(let i = 0; i < nums.length - 1; i++) {
+    if(nums[i] === 1 && nums[i+1] === 1) {
+      return true;
+    } 
+  }
+  return false;
+}
+
+
+/*
+  is a palindrome
+*/
+function isAPalindrome(str) {
+  if (str == null || str == '') {
+    return false;
+  }
+
+  for(let i = 0; i < str.length / 2; i++) {
+    if(str[i] !== str[str.length - (i+1)]) {
+      return false;
+    }
+  }
+  return true;
 }

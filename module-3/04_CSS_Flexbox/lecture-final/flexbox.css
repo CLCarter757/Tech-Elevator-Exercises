@@ -38,9 +38,7 @@ body {
     flex-basis: 80%;
 }
 
-#all-items section article {
-    justify-content: center;
-}
+
 
 
 @media only screen and (max-width: 1024px) {

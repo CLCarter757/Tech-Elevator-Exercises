@@ -207,3 +207,15 @@ function isAPalindrome(str) {
 
   return true;
 }
+
+function createObject() {
+  let object = {
+    firstName: "Clint",
+    lastName: "Carter",
+    age: 32
+  };
+  console.log(object);
+//   person.firstName = "Clint";
+//   person.lastName = "Carter";
+//   person.age = 32;
+}

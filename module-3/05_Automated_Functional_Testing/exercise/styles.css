@@ -27,7 +27,7 @@ header h1 {
 }
 
 main img {
-    object-fit: cover;
+    object-fit : cover;
     margin-right: 20px;
     height: 350px;
     width: 35%;
@@ -37,6 +37,10 @@ main li:before {
     content: '🍡';
     margin-left: -31px;
     padding-right: 8px;
+}
+
+main li {
+    list-style-type: none;
 }
 
 main, section, footer {
@@ -54,4 +58,22 @@ main, section, footer {
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
+    border: none;
 }
+
+
+
+header nav > button {
+    width: 25%;
+    padding: 10px;
+    border-radius: 5px;
+    color: #000000;
+    background-color: #00afef;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 10px;
+    border: none;
+    
+}
+
