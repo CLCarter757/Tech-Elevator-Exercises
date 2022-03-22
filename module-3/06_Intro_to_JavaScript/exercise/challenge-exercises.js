@@ -12,6 +12,30 @@
         iqTest("2 2 4 6") → 0 // all numbers are even, therefore there is no position of an odd number
 */
 
+function iqTest(nums) {
+    a = [];
+    a = nums.split(" ");
+    
+    evens = [];
+    odds = [];
+
+    for(const num of a) {
+        if(num %2 == 0) {
+            evens.push(num);
+        } else {
+            odds.push(num);
+        }
+    }
+
+    if(evens.length < odds.length) {
+        return a.indexOf(evens[0]) + 1;
+    } else if(odds.length < evens.length){
+        return a.indexOf(odds[0]) + 1;
+    } else {
+        return "";
+    }
+}
+
 /*
 2. **titleCase** Write a function that will convert a string into title case, given an optional 
     list of exceptions (minor words). The list of minor words will be given as a string with each 
