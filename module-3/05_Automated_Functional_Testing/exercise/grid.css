@@ -1,0 +1,30 @@
+header {
+    grid-area: header;
+}
+
+main {
+    grid-area: dyk;
+}
+
+#popsicle-race {
+    grid-area: race;
+}
+
+#get-refreshed {
+    grid-area: store;
+}
+
+footer {
+    grid-area: footer;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "header header"
+                         "dyk dyk"
+                         "race store"
+                         "footer footer";
+    height: 100vh;
+    gap: 5px;
+}

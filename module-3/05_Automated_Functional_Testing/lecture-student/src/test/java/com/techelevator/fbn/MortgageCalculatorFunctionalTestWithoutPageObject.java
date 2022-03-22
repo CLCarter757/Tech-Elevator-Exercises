@@ -79,8 +79,8 @@ public class MortgageCalculatorFunctionalTestWithoutPageObject {
 
 	@Test
 	public void single_elements_can_be_found_by_tag_name() {
-		WebElement header = webDriver.findElement(By.tagName("header"));
-		WebElement footer = webDriver.findElement(By.tagName("footer"));
+		WebElement header = webDriver.findElement(By.tagName("header")); // header
+		WebElement footer = webDriver.findElement(By.tagName("footer")); // returns first if multiple
 		assertNotNull(header);
 		assertNotNull(footer);
 	}
