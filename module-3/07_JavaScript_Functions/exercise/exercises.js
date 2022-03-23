@@ -118,12 +118,14 @@ function getFullAddressesOfProperties(array) {
  * 
  */
 function findLargest(array) {
-    let largest = array[0];
-    for(const element of array) {
-        if(element > largest) {
-            largest = element;
+     let largest = array[0];
+
+    array.forEach(num => {
+        if(num > largest) {
+            largest = num;
         }
-    }
+    });
+
     return largest;
 }
 /*
