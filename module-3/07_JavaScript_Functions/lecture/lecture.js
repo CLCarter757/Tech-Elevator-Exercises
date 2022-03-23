@@ -28,6 +28,10 @@ function printToConsole(value) {
  * @param {number} secondParameter the second parameter to multiply
  */
 
+function multiplyTogether(firstParameter, secondParameter) {
+  return firstParameter * secondParameter;
+}
+
 /**
  * This version makes sure that no parameters are ever missing. If
  * someone calls this function without parameters, we default the
@@ -39,7 +43,9 @@ function printToConsole(value) {
  * @param {number} [secondParameter=0] the second parameter to multiply
  */
 
-
+function multiplyNoUndefined(firstParameter = 0, secondParameter = 0) {
+  return firstParameter * secondParameter;
+}
  
 /**
  * Functions can return earlier before the end of the function. This could be useful
@@ -100,7 +106,33 @@ function createSentenceFromUser(name, age, listOfQuirks = [], separator = ', ') 
  * @returns {number} sum of all the numbers
  */
 function sumAllNumbers(numbersToSum) {
-  return numbersToSum.reduce();
+
+  // let sum = 0;
+  // for(const num of numbersToSum) {
+  //   sum += num;
+  // }
+  // return sum;
+
+  return numbersToSum.reduce((accumulator, current) => accumulator + current);
+}
+
+//[1, 5, 2, 5, 1, 6] -> [1, 5, 2, 6]
+function returnOneOfEach(numbers) {
+  
+  return numbers.reduce((accumulator, current) => {
+    if(!accumulator.includes(current)) {
+      accumulator.push(current);
+    }
+    return accumulator;
+  }, []);
+}
+
+function returnLongestLength(strings) {
+  return string((longest, current) => {
+    if(current.length > longest.length) {
+      return current;
+    }
+  });
 }
 
 /**
@@ -111,7 +143,20 @@ function sumAllNumbers(numbersToSum) {
  * @returns {number[]} a new array with only those numbers that are
  *   multiples of 3
  */
-function allDivisibleByThree(numbersToFilter) {}
+function allDivisibleByThree(numbersToFilter) {
+  
+  const result = numbersToFilter.filter (num => num % 3 === 0);
+
+  // const result = [];
+
+  // for(const num of numbersToFilter) {
+  //   if(num % 3 === 0) {
+  //     result.push(num);
+  //   }
+  // }
+
+  return result;
+}
 
 
 /**
@@ -122,6 +167,12 @@ function allDivisibleByThree(numbersToFilter) {}
  */
 function areAllDivisibleByThree(numbers) {
 
+  return numbers.every(num => num % 3 === 0);
+  //numbers.every(isDivisibleByThree);
+}
+
+function isDivisibleByThree(num) {
+  return num % 3 ===0;
 }
 
 /**
@@ -132,7 +183,7 @@ function areAllDivisibleByThree(numbers) {
  * @returns {boolean} true if any object has the first name Robert
  */
 function hasARobert(people) {
-
+  return people.some((person) => person.firstName === 'Robert');
 }
 
 /**
@@ -142,5 +193,14 @@ function hasARobert(people) {
  * @returns {number[]} an array of numbers formatted as currency $x.xx
  */
 function toMoney(numbers) {
+  return numbers.map(num => '$' + num.toFixed(2));
+}
 
+
+//method chaining
+
+function methodChaining(numbers) {
+
+  const newArray = numbers.filter(num => num % 3 === 0).map(num => num * 2);
+  return newArray;
 }
