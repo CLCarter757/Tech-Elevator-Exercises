@@ -168,7 +168,7 @@ function applyEvents() {
 
   const descriptionTextBox = document.getElementById('inputDesc');
   descriptionTextBox.addEventListener('keyup', (e) => {
-    descriptionKeyUp();
+    descriptionKeyUp(e);
   });
 
   document.getElementById('btnToggleForm').addEventListener('click', (e) => {

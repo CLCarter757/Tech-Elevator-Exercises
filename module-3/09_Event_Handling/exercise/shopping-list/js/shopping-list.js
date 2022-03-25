@@ -36,3 +36,52 @@ function displayGroceries() {
     ul.appendChild(li);
   });
 }
+
+/*
+  1) The element to listen for the event on
+  2) The type of event
+  3) The function to run when the event occurs
+*/
+const button = document.getElementById('toggleAll');
+// button.addEventListener('click', displayGroceries);
+button.addEventListener('click', function (event) {
+  console.log(event);
+  // displayGroceries();
+});
+
+// button.addEventListener('click', (event) => {
+//   displayGroceries();
+// });
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // find the button (Mark All Completed)
+  // attach event listener to the button
+  // call a function
+
+  // the function on click of the button
+
+  /*
+    find all of the list items
+    iterate over them
+    for each one, 
+      - add the class completed to the li
+      - find the icon, add the class completed to it
+
+    change the button text to Mark All Incomplete
+    flip the boolean allItemsIncomplete = false
+
+
+    find all of the list items
+    iterate over them
+    for each one, 
+      - remove the class completed to the li
+      - find the icon, remove the class completed to it
+
+    change the button text to Mark All Complete
+    flip the boolean allItemsIncomplete = true
+  */
+
+});
