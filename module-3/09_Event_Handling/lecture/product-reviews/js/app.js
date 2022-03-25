@@ -87,7 +87,7 @@ function toggleDescriptionEdit(desc) {
  * @param {Boolean} save should we save the description text
  */
 function exitDescriptionEdit(textBox, save) {
-  let desc = textBox.previousElementSibling;
+  const desc = textBox.previousElementSibling;
   if (save) {
     description = textBox.value;
     desc.innerText = textBox.value;
@@ -130,4 +130,55 @@ function resetFormValues() {
 /**
  * Save the review that was added using the add review form.
  */
-function saveReview() {}
+function saveReview() {
+  const name = document.getElementById('name');
+  const title = document.getElementById('title');
+  const rating = document.getElementById('rating');
+  const review = document.getElementById('review');
+
+  const newReview = {
+    reviewer: name.value,
+    title: title.value,
+    review: review.value,
+    rating: parseInt(rating.value)
+  };
+
+  reviews.push(newReview);
+  displayReview(newReview);
+  showHideForm();  
+}
+
+function descriptionKeyUp(e) {
+
+  if(e.key === 'Enter') {
+    exitDescriptionEdit(e.target, true);
+    return;
+  }
+  if(e.key === 'Escape') {
+    exitDescriptionEdit(e.target, false);
+    return;
+  }
+}
+
+function applyEvents() {
+  const paragraphElement = document.querySelector('.description');
+  paragraphElement.addEventListener('mouseenter', () => 
+    toggleDescriptionEdit(paragraphElement));
+
+  const descriptionTextBox = document.getElementById('inputDesc');
+  descriptionTextBox.addEventListener('keyup', descriptionKeyUp);
+
+  document.getElementById('btnToggleForm').addEventListener('click', showHideForm);
+
+  // document.getElementById('btnSaveReview').addEventListener('click', () => {
+  //   e.preventDefault();
+  //   saveReview();
+  // });
+
+  document.getElementById('the-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    saveReview();
+  });
+}
+
+document.addEventListener('DOMContentLoaded', applyEvents);
