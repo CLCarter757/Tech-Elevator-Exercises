@@ -40,10 +40,6 @@ function displayGroceries() {
 function itemComplete() {
    this.classList.add('completed');
    this.firstElementChild.classList.add('completed');
-  // const item = document.querySelector('li');
-  // this.item.classList.add('completed');
-  // const listChecks = document.querySelector('i');
-  // this.listChecks.classList.add('completed');
 }
 
 function itemIncomplete() {

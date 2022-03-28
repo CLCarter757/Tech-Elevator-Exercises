@@ -25,7 +25,21 @@ function displayReviews(reviews) {
     }
 }
 
+function processResponse(response) {
+  return response.json();
+}
+
+function loadReviews() {
+  const url = 'http://localhost:8080/reviews';
+
+  fetch(url).then(processResponse).then(displayReviews);
+}
 
 /* ---- CODE BELOW HERE ------ */
 document.addEventListener('DOMContentLoaded', () => {
+
+  const loadReviewsBtn = document.querySelector('button');
+  loadReviewsBtn.addEventListener('click', () => {
+    loadReviews();
+  })
 });
