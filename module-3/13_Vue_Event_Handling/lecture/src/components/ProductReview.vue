@@ -5,41 +5,67 @@
     <p class="description">{{ description }}</p>
 
     <div class="well-display">
-      <div class="well">
+      <div class="well" v-on:click="reviewFilter = -1">
         <span class="amount">{{ averageRating }}</span>
         Average Rating
       </div>
 
-      <div class="well">
+      <div class="well" v-on:click="reviewFilter = 1">
         <span class="amount">{{ numberOfOneStarReviews }}</span>
         1 Star Review{{ numberOfOneStarReviews === 1 ? '' : 's' }}
       </div>
 
-      <div class="well">
+      <div class="well" v-on:click="reviewFilter = 2">
         <span class="amount">{{ numberOfTwoStarReviews }}</span>
         2 Star Review{{ numberOfTwoStarReviews === 1 ? '' : 's' }}
       </div>
 
-      <div class="well">
+      <div class="well" v-on:click="reviewFilter = 3">
         <span class="amount">{{ numberOfThreeStarReviews }}</span>
         3 Star Review{{ numberOfThreeStarReviews === 1 ? '' : 's' }}
       </div>
 
-      <div class="well">
+      <div class="well" v-on:click="reviewFilter = 4">
         <span class="amount">{{ numberOfFourStarReviews }}</span>
         4 Star Review{{ numberOfFourStarReviews === 1 ? '' : 's' }}
       </div>
 
-      <div class="well">
+      <div class="well" v-on:click="reviewFilter = 5">
         <span class="amount">{{ numberOfFiveStarReviews }}</span>
         5 Star Review{{ numberOfFiveStarReviews === 1 ? '' : 's' }}
       </div>
     </div>
-
+    <a href="#" v-on:click="showForm = true" v-if="!showForm">Show Form</a>
+    <form v-on:submit.prevent="addNewReview" v-show="showForm">
+        <div class="form-element">
+            <label for="reviewer">Name:</label>
+            <input id="reviewer" type="text" v-model="newReview.reviewer" />
+        </div>
+        <div class="form-element">
+            <label for="title">Title:</label>
+            <input id="title" type="text" v-model="newReview.title" />
+        </div>
+        <div class="form-element">
+            <label for="rating">Rating:</label>
+            <select id="rating" v-model.number="newReview.rating">
+                <option value="1">1 Star</option>
+                <option value="2">2 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="5">5 Stars</option>
+            </select>
+        </div>
+        <div class="form-element">
+            <label for="review">Review:</label>
+            <textarea id="review" v-model="newReview.review"></textarea>
+        </div>
+        <input type="submit" value="Save" />
+        <input type="button" value="Cancel" @click.prevent="resetForm" />
+    </form>
     <div
       class="review"
       v-bind:class="{ favorited: review.favorited }"
-      v-for="review in reviews"
+      v-for="review in filteredReviews"
       v-bind:key="review.id"
     >
       <h4>{{ review.reviewer }}</h4>
@@ -73,8 +99,11 @@ export default {
       description:
         "Host and plan the perfect cigar party for all of your squirrelly friends.",
       newReview: {},
+      showForm: false,
+      reviewFilter: -1,
       reviews: [
         {
+          id: 1,
           reviewer: "Malcolm Gladwell",
           title: "What a book!",
           review:
@@ -83,6 +112,7 @@ export default {
           favorited: false
         },
         {
+          id: 2,
           reviewer: "Tim Ferriss",
           title: "Had a cigar party started in less than 4 hours.",
           review:
@@ -91,6 +121,7 @@ export default {
           favorited: false
         },
         {
+          id: 3,
           reviewer: "Ramit Sethi",
           title: "What every new entrepreneurs needs. A door stop.",
           review:
@@ -99,6 +130,7 @@ export default {
           favorited: false
         },
         {
+          id: 4,
           reviewer: "Gary Vaynerchuk",
           title: "And I thought I could write",
           review:
@@ -110,6 +142,15 @@ export default {
     };
   },
   computed: {
+    filteredReviews() {
+      return this.reviews.filter((item) => {
+        if(this.reviewFilter == -1) {
+          return true;
+        } else {
+          return item.rating == this.reviewFilter;
+        }
+      });
+    },
     averageRating() {
       let sum = this.reviews.reduce((currentSum, review) => {
         return currentSum + review.rating;
@@ -117,28 +158,35 @@ export default {
       return (sum / this.reviews.length).toFixed(2);
     },
     numberOfOneStarReviews() {
-      return this.reviews.reduce((currentCount, review) => {
-        return currentCount + (review.rating === 1);
-      }, 0);
+      return this.numberOfReviews(1);
     },
     numberOfTwoStarReviews() {
-      return this.reviews.reduce((currentCount, review) => {
-        return currentCount + (review.rating === 2);
-      }, 0);
+      return this.numberOfReviews(2);
     },
     numberOfThreeStarReviews() {
-      return this.reviews.reduce((currentCount, review) => {
-        return currentCount + (review.rating === 3);
-      }, 0);
+      return this.numberOfReviews(3);
     },
     numberOfFourStarReviews() {
-      return this.reviews.reduce((currentCount, review) => {
-        return currentCount + (review.rating === 4);
-      }, 0);
+      return this.numberOfReviews(4);
     },
     numberOfFiveStarReviews() {
+      return this.numberOfReviews(5);
+    }
+  },
+  methods: {
+    addNewReview() {
+      this.newReview.id = this.reviews.length + 1;
+      this.reviews.unshift(this.newReview);
+      this.resetForm();
+    
+    },
+    resetForm() {
+      this.newReview = {};
+      this.showForm = false;
+    },
+    numberOfReviews(numOfStars) {
       return this.reviews.reduce((currentCount, review) => {
-        return currentCount + (review.rating === 5);
+        return currentCount + (review.rating === numOfStars);
       }, 0);
     }
   }
