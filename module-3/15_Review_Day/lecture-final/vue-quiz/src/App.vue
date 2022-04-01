@@ -7,7 +7,7 @@
 
 <script>
 import QuizSummary from './components/QuizSummary.vue';
-import QuizQuestionList from './components/QuizQuestionList.vue';
+import QuizQuestionList from './components/QuizQuestionQueue.vue';
 
 export default {
   name: 'App',

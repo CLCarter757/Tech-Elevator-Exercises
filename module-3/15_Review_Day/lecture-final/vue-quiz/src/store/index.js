@@ -33,6 +33,13 @@ export default new Vuex.Store({
       if(isCorrect) state.result.numberCorrect++;
 
       state.result.totalQuestionsAnswered++;
+    },
+
+    TRY_AGAIN(state) {
+      state.result = {
+        numberCorrect: 0,
+        totalQuestionsAnswered: 0
+      };
     }
   },
   actions: {
