@@ -1,19 +1,22 @@
 <template>
   <div id="app">
     <quiz-summary />
-    <quiz-question-list />    
+    <quiz-question-queue />    
+    <!-- <quiz-question-list />     -->
   </div>
 </template>
 
 <script>
 import QuizSummary from './components/QuizSummary.vue';
-import QuizQuestionList from './components/QuizQuestionQueue.vue';
+import QuizQuestionQueue from './components/QuizQuestionQueue.vue';
+// import QuizQuestionList from './components/QuizQuestionList.vue';
 
 export default {
   name: 'App',
   components: {
     QuizSummary,
-    QuizQuestionList,
+    QuizQuestionQueue
+    // QuizQuestionList,
   },
 }
 </script>
