@@ -15,7 +15,7 @@
       <tbody>
         <tr>
           <td>
-            <input type="checkbox" id="selectAll" @click="selectAll($event)" />
+            <input type="checkbox" id="selectAll" @change="selectAll($event)" />
           </td>
           <td>
             <input type="text" id="firstNameFilter" v-model="filter.firstName" />
@@ -209,9 +209,19 @@ export default {
     },
     selectAll(event) {
       if(event.target.checked) {
+        this.clearCheckboxes();
         this.users.forEach(user => this.selectedUserIDs.push(user.id))
       } else {
         this.clearCheckboxes();
+      }
+    },
+    //Walt's method
+    selectAllChange() {
+      if(this.selectedUserIDs.length === this.users.length) {
+        this.selectedUserIDs = [];
+      } else {
+        this.selectedUserIDs = [];
+        this.users.forEach(user => this.selectedUserIDs.push(user.id));
       }
     }
   },

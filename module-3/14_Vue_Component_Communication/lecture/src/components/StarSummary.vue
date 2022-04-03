@@ -9,14 +9,22 @@
 export default {
   name: "star-summary",
   props: ["rating"],
+  // props: {
+  //   rating: {
+  //     type: Number,
+  //     required: false,
+  //     default: -1
+  //   },
+  //   prop2: String
+  // },
   methods: {
     updateFilter() {
-
+      this.$store.commit("UPDATE_FILTER", this.rating);
     }
   },
   computed: {
     numberOfReviews() {
-      const reviews = [];
+      const reviews = this.$store.state.reviews;
       return reviews.reduce((currentCount, review) => {
         return currentCount + (review.rating === parseInt(this.rating) ? 1 : 0);
       }, 0);
