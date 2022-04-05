@@ -24,7 +24,7 @@
     </div>
     <div class="actions">
       <button v-on:click.prevent="resetForm" type="cancel">Cancel</button>
-      <button>Submit</button>
+      <button type="submit">Submit</button>
     </div>
   </form>
 </template>
@@ -51,6 +51,8 @@ export default {
       this.newReview.productID = productID;
       this.$store.commit("ADD_REVIEW", this.newReview);
       // TODO: send the visitor back to the product page to see the new review
+      // this.$router.go(-1);
+      this.$router.push({name: 'product-details', params: {id : productID} });
     },
     resetForm() {
       this.newReview = {};
