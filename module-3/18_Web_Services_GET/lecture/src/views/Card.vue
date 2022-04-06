@@ -1,5 +1,5 @@
 <template>
-  <card-detail />
+  <card-detail :boardID="$route.params.boardID" :cardID="$route.params.cardID"/>
 </template>
 
 <script>
