@@ -1,6 +1,11 @@
 <template>
   <div id="app">
+    <nav>
+      <router-link :to="{ name: 'home' }">Home | </router-link>
+      <router-link :to="{ name: 'my-books' }">My Books</router-link>
+    </nav>
     <router-view />
+    <router-link :to="{ name: 'new-book' }">Add Book to Reading List</router-link>
   </div>
 </template>
 

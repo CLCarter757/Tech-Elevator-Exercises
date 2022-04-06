@@ -15,9 +15,7 @@ export default {
   },
   computed: {
     averageRating() {
-      const reviews = this.$store.state.products.find(
-        p => p.id == this.$store.state.activeProduct
-      ).reviews;
+      const reviews = this.$store.getters.product.reviews;
       let sum = reviews.reduce((currentSum, review) => {
         return currentSum + review.rating;
       }, 0);

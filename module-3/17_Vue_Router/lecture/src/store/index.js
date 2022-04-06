@@ -77,6 +77,11 @@ export default new Vuex.Store({
       }
     ]
   },
+  getters: {
+    product(state) {
+      return state.products.find(p => p.id == state.activeProduct);
+    }
+  },
   mutations: {
     ADD_REVIEW(state,review) {
       const product = this.state.products.find(p => p.id == review.productID);
