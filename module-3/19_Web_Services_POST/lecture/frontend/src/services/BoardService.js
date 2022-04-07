@@ -10,6 +10,14 @@ export default {
     return http.get('/boards');
   },
 
+  addBoard(board) {
+    return http.post('/boards', board);
+  },
+
+  deleteBoard(boardID) {
+    return http.delete(`/boards/${boardID}`)
+  },
+
   getCards(boardID) {
     return http.get(`/boards/${boardID}`)
   },

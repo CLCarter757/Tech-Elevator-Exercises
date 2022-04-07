@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import MessageService from '../services/MessageService';
 import messageService from "../services/MessageService";
 
 export default {
@@ -32,7 +33,12 @@ export default {
   },
   methods: {
     saveMessage() {
-
+        MessageService.addMessage(this.message)
+          .then(response => {
+            if(response.status === 201) {
+              this.$router.push(`/${this.message.topicId}`);
+            }
+          })
     }
   }
 };

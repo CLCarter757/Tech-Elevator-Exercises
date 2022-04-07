@@ -55,7 +55,28 @@ export default {
       });
     },
     saveNewBoard() {
-
+      this.showAddBoard = false;
+      this.isLoading = true;
+      boardsService.addBoard(this.newBoard).then(response => {
+        if(response.status === 201) {
+          this.retrieveBoards();
+        }
+      }).catch(error => {
+        const verb = 'adding';
+        if (error.response) {
+        this.errorMsg =
+          "Error " + verb + " board. Response received was '" +
+          error.response.statusText +
+          "'.";
+      } else if (error.request) {
+        this.errorMsg =
+          "Error " + verb + " board. Server could not be reached.";
+      } else {
+        this.errorMsg =
+          "Error " + verb + " board. Request could not be created.";
+      }
+      this.isLoading = false;
+      })
     },
     randomBackgroundColor() {
       return "#" + this.generateHexCode();
