@@ -8,17 +8,17 @@
       <board-column
         title="Planned"
         v-bind:cards="planned"
-        v-bind:boardID="this.boardId"
+        v-bind:boardID="boardId"
       />
       <board-column
         title="In Progress"
         v-bind:cards="inProgress"
-        v-bind:boardID="this.boardId"
+        v-bind:boardID="boardId"
       />
       <board-column
         title="Completed"
         v-bind:cards="completed"
-        v-bind:boardID="this.boardId"
+        v-bind:boardID="boardId"
       />
     </div>
     <div class="board-actions" v-if="!isLoading">

@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import TopicsService from '@/services/TopicsService.js';
+
 export default {
   name: 'topic-details',
   props: {
@@ -24,6 +26,11 @@ export default {
         messages: []
       },
     }
+  },
+  created() {
+    TopicsService.getDetails(this.topicId).then(response => {
+      this.topic = response.data;
+    })
   }
 }
 </script>
